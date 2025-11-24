@@ -35,18 +35,22 @@ The driver is not signed by a trusted authority, so you must enable Windows Test
 3.  Build the driver:
     ```
     cd Driver
-    build /g
+    nmake
     cd ..
     ```
 4.  Build the agent:
     ```
     cd Agent
-    build /g
+    nmake
     cd ..
     ```
-    The compiled binaries will be located in `Driver/x64/Release` and `Agent/x64/Release`.
+    The compiled binaries will be located in `Driver/x6d64/Release` and `Agent/x64/Release`.
 
-### 3. Create a Test Certificate
+### 3. Troubleshooting the Build
+
+If you encounter an error like `NMAKE : fatal error U1052: file 'makefile.def' not found`, it means the WDK build environment is not correctly configured in your command prompt. Ensure you are using the **x64 Native Tools Command Prompt for VS 2022** that comes with Visual Studio, as this correctly sets up the `NTMAKEENV` environment variable required by the Driver's Makefile.
+
+### 4. Create a Test Certificate
 
 A test certificate is required to sign the driver for testing purposes.
 
@@ -57,7 +61,7 @@ A test certificate is required to sign the driver for testing purposes.
     ```
     This will create `TssShieldCert.pfx` and `TssShieldCert.cer` in the `Scripts` directory.
 
-### 4. Sign the Driver
+### 5. Sign the Driver
 
 After building, the driver needs to be signed with the test certificate.
 
@@ -68,7 +72,7 @@ After building, the driver needs to be signed with the test certificate.
     ```
     This script will sign `TssShield.sys` and create and sign a catalog file `TssShield.cat`.
 
-### 5. Configure Monitored Directories
+### 6. Configure Monitored Directories
 
 Edit the `TssShield.json` file in the project root to specify which directories to monitor and which processes are whitelisted.
 
@@ -88,7 +92,7 @@ Edit the `TssShield.json` file in the project root to specify which directories 
 - `dirs`: An array of full paths to the directories to be monitored.
 - `white_list`: An array of process executable names that are allowed to access files in the monitored directories.
 
-### 6. Install the System
+### 7. Install the System
 
 1.  Copy the `TssShield.json` configuration file to `C:\TssShield.json`.
 2.  Open an **Administrator Command Prompt** and navigate to the `Scripts` directory.
