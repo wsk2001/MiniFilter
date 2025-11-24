@@ -32,13 +32,13 @@ The driver is not signed by a trusted authority, so you must enable Windows Test
 
 1.  Open an **x64 Native Tools Command Prompt for VS 2022**.
 2.  Navigate to the project's root directory.
-3.  **Build the driver**: The driver must be built using the WDK's `build.exe` utility.
+3.  **Build the driver**:
     ```
     cd Driver
-    build /g
+    nmake
     cd ..
     ```
-4.  **Build the agent**: The agent is a standard user-mode application and can be built with `nmake`.
+4.  **Build the agent**:
     ```
     cd Agent
     nmake
@@ -48,8 +48,7 @@ The driver is not signed by a trusted authority, so you must enable Windows Test
 
 ### 3. Troubleshooting the Build
 
-- **`'build' is not recognized...` or `NMAKE : fatal error U1052: file 'makefile.def' not found`**:
-  This error indicates that the WDK build environment is not correctly configured. The **Driver** must be compiled in a command prompt where the WDK environment variables are set. Ensure you are using the **x64 Native Tools Command Prompt for VS 2022** and that the WDK was installed correctly as an extension to Visual Studio.
+- **Build Errors in `Driver/Makefile`**: The `Driver/Makefile` contains hardcoded paths to the Windows Kits directory (e.g., `D:\Windows Kits\10`). If your WDK or SDK is installed in a different location, you will need to edit the `KIT_PATH` and `SDK_VERSION` variables at the top of `Driver/Makefile` to match your system.
 
 ### 4. Create a Test Certificate
 
