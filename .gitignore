@@ -1,0 +1,64 @@
+# Build outputs
+build/
+bin/
+obj/
+out/
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.dll
+*.sys
+*.lib
+*.exp
+*.inf
+*.cat
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.docstates
+*.vcxproj.filters
+*.vcxproj.user
+
+# Driver specific
+*.log
+*.etl
+*.cer
+*.pfx
+*.pvk
+*_i.c
+*_p.c
+*_h.h
+*.tlb
+*.tlh
+*.tli
+
+# WDK specific
+*.bsc
+*.sbr
+*.cod
+*.map
+wdf01000.dll
+
+# Temporary files
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+
+# OS specific
+Thumbs.db
+.DS_Store
+
+# Visual Studio Code
+.vscode/
+
+# Backup files
+*.bak
+*.old
+
+# Test files
+test_*.txt
