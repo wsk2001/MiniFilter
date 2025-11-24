@@ -63,18 +63,6 @@ typedef struct _MINIFILTER_DATA {
 
     PFLT_FILTER Filter;
 
-    //
-    //  Server port for communication
-    //
-
-    PFLT_PORT ServerPort;
-
-    //
-    //  Client port for communication
-    //
-
-    PFLT_PORT ClientPort;
-
 } MINIFILTER_DATA, *PMINIFILTER_DATA;
 
 //
