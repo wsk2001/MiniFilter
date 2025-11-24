@@ -32,13 +32,6 @@ PFLT_FILTER gFilterHandle = NULL;
     Function prototypes
 *************************************************************************/
 
-DRIVER_INITIALIZE DriverEntry;
-NTSTATUS
-DriverEntry(
-    _In_ PDRIVER_OBJECT DriverObject,
-    _In_ PUNICODE_STRING RegistryPath
-);
-
 NTSTATUS
 MiniFilterUnload(
     _In_ FLT_FILTER_UNLOAD_FLAGS Flags
