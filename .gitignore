@@ -11,8 +11,8 @@ out/
 *.sys
 *.lib
 *.exp
-*.inf
 *.cat
+# Note: *.inf files are NOT ignored in src/ - they are source files
 
 # Visual Studio
 .vs/
