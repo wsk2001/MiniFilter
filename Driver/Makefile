@@ -1,0 +1,7 @@
+TARGETNAME=TssShield
+TARGETTYPE=DRIVER
+TARGETPATH=x64\Release
+
+SOURCES=TssShield.c
+
+!INCLUDE $(NTMAKEENV)\makefile.def
