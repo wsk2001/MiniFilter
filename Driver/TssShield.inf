@@ -1,0 +1,56 @@
+; TssShield.inf
+
+[Version]
+Signature = "$Windows NT$"
+Class = "ActivityMonitor"
+ClassGuid = {b86dff51-a31e-4bac-b3cf-e8cfe75c9fc2}
+Provider = %ManufacturerName%
+DriverVer = 11/21/2025,1.0.0.0
+CatalogFile = TssShield.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+TssShield.DriverFiles = 12 ; drivers
+
+[DefaultInstall]
+OptionDesc = %ServiceDescription%
+CopyFiles = TssShield.DriverFiles
+
+[DefaultInstall.Services]
+AddService = %ServiceName%,,TssShield.Service
+
+[DefaultUninstall]
+DelFiles = TssShield.DriverFiles
+
+[DefaultUninstall.Services]
+DelService = %ServiceName%,0x200
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+TssShield.sys = 1
+
+[TssShield.DriverFiles]
+TssShield.sys
+
+[TssShield.Service]
+DisplayName = %ServiceName%
+Description = %ServiceDescription%
+ServiceBinary = %12%\TssShield.sys
+ServiceType = 2 ; FS_FILTER_FILE_SYSTEM_DRIVER
+StartType = 0 ; SERVICE_BOOT_START
+ErrorControl = 1 ; SERVICE_ERROR_NORMAL
+LoadOrderGroup = "FSFilter Activity Monitor"
+AddReg = TssShield.AddRegistry
+
+[TssShield.AddRegistry]
+HKR, "Instances", "DefaultInstance", 0x00000000, %DefaultInstance%
+HKR, "Instances\"%DefaultInstance%, "Altitude", 0x00000000, "370030"
+
+[Strings]
+ManufacturerName = "Tss"
+ServiceDescription = "TssShield File Access Control"
+ServiceName = "TssShield"
+DefaultInstance = "TssShield Instance"
+DiskName = "TssShield Source Disk"

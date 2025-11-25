@@ -1,0 +1,13 @@
+{
+    "dirs": [
+        "C:\\SecretData",
+        "C:\\TestData",
+        "C:\\ReadOnlyData",
+        "C:\\Protected"
+    ],
+    "white_list": [
+        "cmd.exe",
+        "notepad.exe",
+        "powershell.exe"
+    ]
+}
